@@ -27,6 +27,8 @@ var line = d3.line()
 
 // DATA-DRIVEN CODE ------------------------
 d3.csv("https://raw.githubusercontent.com/ebucodes/data-visualization-using-D3.js/main/data/suicide1.csv", function(d) {
+    // var parseTime = d3.timeParse("%Y");
+    // var formatTime = d3.timeFormat(specifier);
     d.deathsRate = +d.deathsRate; // coerce to number
     d.year = +d.year; // coerce to number
     return d;
@@ -71,6 +73,7 @@ d3.csv("https://raw.githubusercontent.com/ebucodes/data-visualization-using-D3.j
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
+    // .call(x.ticks(d3.timeYear));
     chart.append("text") // label
         .attr("class", "axis-label")
         .attr("x", width / 2)
